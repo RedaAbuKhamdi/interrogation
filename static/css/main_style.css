@@ -1,6 +1,8 @@
  /* Общий стиль */
 body{
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #E0E0E0;
 }
 .main-button{
     color: white;
@@ -28,7 +30,6 @@ body{
     height: 100vh;
     text-align: center;
     padding: 5pt;
-    color: white;
     padding-top: 10em;
 }
 .logo{

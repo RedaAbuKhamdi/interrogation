@@ -1,0 +1,35 @@
+ /* Диалог */
+.dialogue-section{
+    min-height: 1000px;
+    background-image: url(../resources/images/chat_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.dialogue-container{
+    min-height: 600px;
+}
+.choices-container{
+    background-color: #1A1F25;
+    padding: 1em;
+    padding-bottom: 3em;
+}
+.choice{
+    padding: 1em;
+    width: 70%;
+    border: 2px solid #BEB19E;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #3D2F14;
+    text-align: center;
+    color: floralwhite;
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 30px auto 30px auto;
+}
+.choice:hover{
+    box-shadow: 0 0 30px rgba(255, 217, 0, 0.253);
+    cursor: pointer;
+}
+.choice:active{
+    bottom: 0;
+}
