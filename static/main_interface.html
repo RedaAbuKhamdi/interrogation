@@ -11,8 +11,9 @@
     <title>interrogation</title>
 </head>
 <body>
-    <div>
+    <div class="content">
         <section class="dialogue-section">
+            <div id="case-open" onclick="show_case()">Открыть досье</div>
             <div class="dialogue-container">
                 
             </div>
@@ -25,6 +26,28 @@
                     
             </div>
         </section>
+
+        <section class="case-container">
+             <div class="flex-container">
+                 <div class="case-num-container"><span id="case-num">Дело &numero; </span></div>
+                 <div id="icon-secret"></div>
+             </div> 
+             <div class="description-container">
+
+                <span id="description">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos maxime nam ea saepe ducimus hic, debitis consequatur voluptas reiciendis dolores nesciunt molestias, vel dolor a odio? A optio velit facilis!  
+                </span>
+
+             </div> 
+             <div class="date-container">
+                <span id="day">10</span>
+                <span id="month">июня</span>
+             </div>
+             <div style="text-align: right;margin-right: 4em;">
+                <input type="button" value="Назад" onclick="hide_case()" class="main-button">
+             </div>
+        </section>
     </div>
 </body>
+<script src="js/main_script.js"></script>
 </html>
