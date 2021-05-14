@@ -8,16 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main_interface_style.css">
     <link rel="stylesheet" href="css/main_style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
     <title>interrogation</title>
 </head>
 <body>
     <div class="content">
         <section class="dialogue-section">
             <div id="case-open" onclick="show_case()">Открыть досье</div>
-            <div class="dialogue-container">
-                
+            <div id="dialogue-container">
+                <div class="interviewee-line">
+                    some witness line
+                </div>
+                <div class="protagonist-line">
+                    our cool line
+                </div>
             </div>
-            <div class="choices-container">
+            <div class="choices-container" id="choices-container">
 
                 <div class="choice">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </div>
                 <div class="choice">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </div>
