@@ -1,7 +1,12 @@
 var express = require('express');
+var bodyParser = require('body-parser')
 
 var app = express();
-let session = require('/typescript_scripts/index.js')
+let session = require('./typescript_scripts/index.js')
+
+app.use(bodyParser.urlencoded({ extended: true }))
+
+  
 
 const path = require('path');
 const fs = require('fs');
@@ -15,11 +20,13 @@ app.get('/game', (req, res) => {
     res.sendFile(`${__dirname}/static/main_interface.html`);
 });
 app.get('/get_next_dialogue', (req, res) => {
-    json_str = fs.readFileSync(req.query.next_file);
+    json_str = fs.readFileSync(req.query.next_file, 'utf8');
     res.send(json_str);
 })
 app.post('/add_keyword', (req, res) =>{
-    session.addKeyword(JSON.parse(req.body).keyword);
+    console.log('------------------')
+    console.log(req.body.keyword)
+    session.session.addKeyword(req.body.keyword);
 });
 
 app.listen(8080);

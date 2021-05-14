@@ -20,17 +20,15 @@ class  Interviewee{
     description: string;
     photo: string;
     id: number;
-    current_dialogue: Dialogue;
 
     constructor(name: string, surname: string, 
-        description: string, photo: string,id: number, dialogue: Dialogue){
+        description: string, photo: string,id: number){
 
             this.name = name;
             this.surname = surname;
             this.description = description;
             this.photo = photo;
             this.id = id;
-            this.current_dialogue = dialogue;
 
         }
 
