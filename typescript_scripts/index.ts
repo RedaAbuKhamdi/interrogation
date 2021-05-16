@@ -5,13 +5,16 @@ import { domainToASCII } from 'url';
 class Story{
     // Данные об игроке и игровой сессии
     keywords : string[] = null as any;
-
+    num_of_interviewees: number;
+    constructor(num_of_interviewees: number){
+        this.num_of_interviewees = num_of_interviewees;
+    }
     addKeyword(key: string){
         this.keywords.push(key);
     }
 
 }
-export let session = new Story(); 
+export let session = new Story(5); 
 // Допрашиваемые
 class  Interviewee{
     // Данные о допрашиваемом 

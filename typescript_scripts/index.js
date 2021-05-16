@@ -1,56 +1,39 @@
 "use strict";
 exports.__esModule = true;
-var fs = require("fs");
+exports.session = void 0;
 // История
 var Story = /** @class */ (function () {
-    function Story() {
+    function Story(num_of_interviewees) {
         // Данные об игроке и игровой сессии
         this.keywords = null;
-        this.interviewees = null;
+        this.num_of_interviewees = num_of_interviewees;
     }
     Story.prototype.addKeyword = function (key) {
         this.keywords.push(key);
     };
-    Story.prototype.addInterviewee = function (interviewee) {
-        this.interviewees.push(interviewee);
-    };
     return Story;
 }());
-var session = new Story();
+exports.session = new Story(5);
 // Допрашиваемые
 var Interviewee = /** @class */ (function () {
-    function Interviewee(name, surname, description, photo, dialogue) {
+    function Interviewee(name, surname, description, photo, id) {
         this.name = name;
         this.surname = surname;
         this.description = description;
         this.photo = photo;
-        this.current_dialogue = dialogue;
+        this.id = id;
     }
     return Interviewee;
 }());
 // Диалог вопрос - ответ
 var Dialogue = /** @class */ (function () {
-    function Dialogue(option, answer, keyword, branches) {
+    function Dialogue(option, answer, req_keywords, add_keyword, branches, interviewee_id) {
         this.option = option;
         this.answer = answer;
-        this.keyword = keyword;
+        this.req_keywords = req_keywords;
+        this.add_keyword = add_keyword;
+        this.interviewee_id = interviewee_id;
         this.branches = branches;
     }
-    // Getters
-    Dialogue.prototype.getOption = function () {
-        return this.option;
-    };
-    // Вернуть варианты ответа 
-    Dialogue.prototype.getResponse = function () {
-        var responses = [];
-        for (var i = 0; i < this.branches.length; i++) {
-            var json_str = fs.readFileSync(this.branches[i]).toString();
-            var dialogue_option = JSON.parse(json_str);
-            if (dialogue_option.keyword == null || dialogue_option.keyword in session.keywords) {
-                responses.push([dialogue_option.getOption(), this.branches[i]]);
-            }
-        }
-        return responses;
-    };
     return Dialogue;
 }());

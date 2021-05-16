@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser')
 
 var app = express();
-let session = require('./typescript_scripts/index.js')
+let session = require('./typescript_scripts/index.js').session;
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -23,9 +23,11 @@ app.get('/get_next_dialogue', (req, res) => {
     json_str = fs.readFileSync(req.query.next_file, 'utf8');
     res.send(json_str);
 })
+app.get('/get_num_of_interviewees', (req, res) =>{
+    console.log(session);
+    res.send(''+session.num_of_interviewees)
+})
 app.post('/add_keyword', (req, res) =>{
-    console.log('------------------')
-    console.log(req.body.keyword)
     session.session.addKeyword(req.body.keyword);
 });
 

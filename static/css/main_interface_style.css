@@ -93,8 +93,12 @@
 }
 .description-container{
     margin: 5em auto 1em auto;
-    padding: 5em;
+    display: flex;
+    flex-direction: row;
     text-align: justify;
+}
+.description-container > div{
+    padding: 1em;
 }
 #description{
     width: 100%;
@@ -146,3 +150,32 @@
     cursor: pointer;
     text-shadow: 0 0 5px gold;
 }
+.arrow {
+    border: solid rgba(255, 217, 0, 0.253);
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 10px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .arrow:hover{
+      border-color: gold;
+  }
