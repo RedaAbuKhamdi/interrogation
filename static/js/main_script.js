@@ -1,3 +1,6 @@
+function sleep(ms) {
+   return new Promise(resolve => setTimeout(resolve, ms));
+ }
 // Появление и исчезание дела
 let case_element = document.getElementsByClassName('case-container')[0]
 let case_open = document.getElementById('case-open')
@@ -16,7 +19,7 @@ function hide_case(){
  let current_interviewee = null
  let current_choice = null
  let options = null
- let path_to_data = 'static/data/'
+ let path_to_data = 'static/data/utf8/'
  $('#case_num').text("Дело &numero; "+Math.floor(Math.random()*10))
  function print_interviewee_case(){
     $('#description').text(current_interviewee.name+' '
@@ -27,11 +30,15 @@ function hide_case(){
    sentences = text.split('.')
    for (let i = 0; i < sentences.length; i++) {
       const line = sentences[i];
-      if (line != ''){
-         $('#dialogue-container').append('<div class="'+role+'-line">'+
+      if (line != '' && line != 'null' && line != null){
+         sleep(800*i).then(() => {
+            $('#dialogue-container').append('<div class="'+role+'-line">'+
          line+'<div>');
+            $('#dialogue-container')[0].scrollTop = $('#dialogue-container')[0].scrollHeight - $('#dialogue-container')[0].clientHeight;
+         })
       }
    }
+
  }
  function switch_interviewee(id){
    $.ajax({
@@ -77,6 +84,15 @@ function hide_case(){
          },
          async: false,
          success: function(result){
+            result = result.replace(/\\n/g, "\\n")  
+            .replace(/\\'/g, "\\'")
+            .replace(/\\"/g, '\\"')
+            .replace(/\\&/g, "\\&")
+            .replace(/\\r/g, "\\r")
+            .replace(/\\t/g, "\\t")
+            .replace(/\\b/g, "\\b")
+            .replace(/\\f/g, "\\f");
+            result = result.replace(/[\u0000-\u0019]+/g,"");
             let choice = JSON.parse(result);
             options.push(choice);
             $('#choices-container').append('<div class="choice" id="'+i+'">'+

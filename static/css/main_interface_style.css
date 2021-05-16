@@ -7,7 +7,19 @@
     background-position: center;
 }
 #dialogue-container{
-    min-height: 600px;
+    height: 600px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+/* Скрол*/
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 30px;
+    background-color: transparent;
+    border: 2px solid #3D2F14;
 }
 .choices-container{
     background-color: #1A1F25;
