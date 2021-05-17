@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/static/index.html`);
 });
 app.get('/game', (req, res) => {
+    session.setNumberOfInterviewees(5);
     res.sendFile(`${__dirname}/static/main_interface.html`);
 });
 app.get('/get_next_dialogue', (req, res) => {

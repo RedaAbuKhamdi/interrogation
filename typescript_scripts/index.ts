@@ -16,9 +16,8 @@ class Story{
     static getInstance(){
         if (!Story.instance) {
             Story.instance = new Story();
-        }else{
-            return Story.instance;
         }
+        return Story.instance;
     }
     setNumberOfInterviewees(num_of_interviewees: number){
         this.num_of_interviewees = num_of_interviewees;

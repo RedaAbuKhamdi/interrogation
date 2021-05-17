@@ -14,9 +14,7 @@ var Story = /** @class */ (function () {
         if (!Story.instance) {
             Story.instance = new Story();
         }
-        else {
-            return Story.instance;
-        }
+        return Story.instance;
     };
     Story.prototype.setNumberOfInterviewees = function (num_of_interviewees) {
         this.num_of_interviewees = num_of_interviewees;

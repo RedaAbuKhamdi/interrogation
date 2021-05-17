@@ -4,7 +4,7 @@ function sleep(ms) {
 // Появление и исчезание дела
 let case_element = document.getElementsByClassName('case-container')[0]
 let case_open = document.getElementById('case-open')
-let num_of_interviewees = 0;
+let num_of_interviewees = 1;
 $.ajax({
    url: '/get_num_of_interviewees',
    type: 'get',
@@ -140,6 +140,7 @@ function hide_case(){
 
  }
  function get_case_data(dir){
+   console.log(num_of_interviewees);
    let next_id = parseInt(current_interviewee.id)+parseInt(dir);
    if (next_id > num_of_interviewees){
       next_id = 1;
