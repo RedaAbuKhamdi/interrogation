@@ -141,12 +141,16 @@
         margin: 20px;
     }
 }
-#case-open{
+.navbar{    
+    display: flex;
+    flex-direction: row;
+}
+.nav-item{
     font-size: 18pt;
     text-align: right;
     padding: 1em;
 }
-#case-open:hover{
+.nav-item:hover{
     cursor: pointer;
     text-shadow: 0 0 5px gold;
 }
