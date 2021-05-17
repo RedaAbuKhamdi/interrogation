@@ -3,17 +3,27 @@ exports.__esModule = true;
 exports.session = void 0;
 // История
 var Story = /** @class */ (function () {
-    function Story(num_of_interviewees) {
+    function Story() {
         // Данные об игроке и игровой сессии
-        this.keywords = null;
-        this.num_of_interviewees = num_of_interviewees;
+        this.keywords = [];
     }
     Story.prototype.addKeyword = function (key) {
         this.keywords.push(key);
     };
+    Story.getInstance = function () {
+        if (!Story.instance) {
+            Story.instance = new Story();
+        }
+        else {
+            return Story.instance;
+        }
+    };
+    Story.prototype.setNumberOfInterviewees = function (num_of_interviewees) {
+        this.num_of_interviewees = num_of_interviewees;
+    };
     return Story;
 }());
-exports.session = new Story(5);
+exports.session = Story.getInstance();
 // Допрашиваемые
 var Interviewee = /** @class */ (function () {
     function Interviewee(name, surname, description, photo, id) {

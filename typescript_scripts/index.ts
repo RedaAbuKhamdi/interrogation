@@ -4,17 +4,29 @@ import { domainToASCII } from 'url';
 // История
 class Story{
     // Данные об игроке и игровой сессии
-    keywords : string[] = null as any;
-    num_of_interviewees: number;
-    constructor(num_of_interviewees: number){
-        this.num_of_interviewees = num_of_interviewees;
+    keywords : string[] = [];
+    num_of_interviewees!: number;
+    private static instance: Story;
+    private constructor(){
+
     }
     addKeyword(key: string){
         this.keywords.push(key);
     }
+    static getInstance(){
+        if (!Story.instance) {
+            Story.instance = new Story();
+        }else{
+            return Story.instance;
+        }
+    }
+    setNumberOfInterviewees(num_of_interviewees: number){
+        this.num_of_interviewees = num_of_interviewees;
+    }
+    
 
 }
-export let session = new Story(5); 
+export let session = Story.getInstance(); 
 // Допрашиваемые
 class  Interviewee{
     // Данные о допрашиваемом 

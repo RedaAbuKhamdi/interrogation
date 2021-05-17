@@ -19,16 +19,17 @@ function show_case(){
    case_element.scrollIntoView()
 }
 function hide_case(){
-    case_element.style.display = 'none' 
-    case_open.style.display = 'block'
-    case_open.scrollIntoView() 
+    case_element.style.display = 'none';
+    case_open.style.display = 'block';
+    case_open.scrollIntoView();
  }
- case_element.style.display = 'none'
+ case_element.style.display = 'none';
  // Печать диалогов
- let current_interviewee = null
- let current_choice = null
- let options = null
- let path_to_data = 'static/data/utf8/'
+ let current_interviewee = null;
+ let current_choice = null;
+ let options = null;
+ let question_lim = 5;
+ let path_to_data = 'static/data/utf8/';
  $('#case_num').text("Дело &numero; "+Math.floor(Math.random()*10))
  function print_interviewee_case(){
     $('#description').html(current_interviewee.name+' '
@@ -117,6 +118,7 @@ function hide_case(){
             let curr_id = this.id;
             if(options[curr_id].interviewee_id != current_interviewee.id){
                switch_interviewee(options[curr_id].interviewee_id)
+               question_lim = 5;
             }
             current_choice = options[curr_id];
             print_lines(current_choice.option, 'protagonist')

@@ -14,6 +14,7 @@ const fs = require('fs');
 app.use(express.static(path.join(__dirname, '/static/')));
 
 app.get('/', (req, res) => {
+    session.setNumberOfInterviewees(5);
     res.sendFile(`${__dirname}/static/index.html`);
 });
 app.get('/game', (req, res) => {
