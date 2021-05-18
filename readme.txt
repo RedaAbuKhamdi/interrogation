@@ -1,5 +1,7 @@
-1) Launch server.js
-2) open http://localhost:8080/
+To test:
+1) Clone project
+2) Launch server.js: node server.js
+3) open http://localhost:8080/
 Dependencies:
 express:
 npm express
